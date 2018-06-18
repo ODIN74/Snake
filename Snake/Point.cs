@@ -23,6 +23,13 @@ namespace Snake
             this.symbol = symbol;
         }
 
+        public Point(Point p)
+        {
+            this.X = p.X;
+            this.Y = p.Y;
+            this.Symbol = p.Symbol;
+        }
+
         public int X
         {
             get { return this.x; }
@@ -41,10 +48,34 @@ namespace Snake
             set { this.symbol = value; }
         }
 
-        public void Draw()
+        public void Move(int offset, Direction direction)
+        {
+            switch(Convert.ToInt32(direction))
+            {
+                case 0:
+                    x = x - offset;
+                    break;
+                case 1:                   
+                        x = x + offset;
+                        break;
+                case 2:
+                    y = y - offset;
+                    break;
+                case 3:
+                    y = y + offset;
+                    break;      
+            }
+        }
+
+        public void Drow()
         {
             Console.SetCursorPosition(this.x, this.y);
             Console.Write(this.symbol);
+        }
+
+        public override string ToString()
+        {
+            return x + ", " + y + ", " + symbol;
         }
 
     }

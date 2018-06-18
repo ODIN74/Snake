@@ -14,22 +14,23 @@ namespace Snake
 
             
             HorizontalLine hLineTop = new HorizontalLine(0, Console.WindowWidth - 2, 0, '*');
-            hLineTop.Draw();
+            hLineTop.Drow();
 
             VerticalLine vLineLeft = new VerticalLine(0, 1, Console.WindowHeight - 2, '*');
-            vLineLeft.Draw();
+            vLineLeft.Drow();
 
             HorizontalLine hLineBottom = new HorizontalLine(0, Console.WindowWidth - 2, Console.WindowHeight - 1, '*');
-            hLineBottom.Draw();
+            hLineBottom.Drow();
 
             VerticalLine vLineRight = new VerticalLine(Console.WindowWidth - 2, 1, Console.WindowHeight - 2, '*');
-            vLineRight.Draw();
+            vLineRight.Drow();
 
             Point p1 = new Point(1, 3, '*');
-            p1.Draw();
+            Snake snake = new Snake(p1, 4, Direction.RIGHT);
+            snake.Drow();
 
             Point p2 = new Point(4, 5, '#');
-            p2.Draw();
+            p2.Drow();
         }
     }
 }
