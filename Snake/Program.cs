@@ -18,6 +18,26 @@ namespace Snake
 
             p2.Draw();
 
+            Point p3 = new Point(10, 3, '$');
+
+            Point p4 = new Point(4, 13, '%');
+
+            List<char> charList = new List<char>() { '@', '#', '!', '&', '$', '^' };
+
+            List<Point> pointList = new List<Point>() { p1, p2, p3, p4 };
+
+            foreach (char i in charList )
+            {
+                Console.WriteLine("\n{0}", i);
+            }
+
+            foreach (Point i in pointList)
+            {
+                Console.WriteLine($@"{i.X}
+{i.Y}
+{i.Symbol}" + "\n");
+            }
+
             Console.ReadLine();
         }
     }
