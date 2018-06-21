@@ -39,10 +39,22 @@ namespace Snake
             var verticalLineRight = new VerticalLine(Console.WindowWidth - 2, 1, Console.WindowHeight - 2, '*');
             verticalLineRight.Draw();
 
-            var p1 = new Point(1, 3, '*');
+            var p1 = new Point(4, 5, '*');
             var snake = new Snake(p1, 4, Direction.Right);
             snake.Draw();
-            snake.Move();
+
+            while (true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    
+                    snake.HandleKey(Console.ReadKey().Key);
+
+                }
+                Thread.Sleep(100);
+                snake.Move();
+            }
+            
         }
     }
 }

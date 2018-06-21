@@ -40,6 +40,19 @@ namespace Snake
         }
 
         /// <summary>
+        /// Get current direction
+        /// </summary>
+        internal Direction GetDirection => this.direction;
+
+        /// <summary>
+        /// Sets direction
+        /// </summary>
+        internal Direction SetDirection
+        {
+            set => this.direction = value;
+        }
+
+        /// <summary>
         /// Move snake method
         /// </summary>
         internal void Move()
@@ -63,6 +76,34 @@ namespace Snake
             var nextPoint = new Point(head);
             nextPoint.Move(1, this.direction);
             return nextPoint;
+        }
+
+        /// <summary>
+        /// Motion control method
+        /// </summary>
+        /// <param name="key">Pressed key</param>
+        internal void HandleKey(ConsoleKey key)
+        {
+            switch (key)
+            {
+                case ConsoleKey.LeftArrow:
+                    this.direction = Direction.Left;
+                    break;
+
+                case ConsoleKey.RightArrow:
+                    this.direction = Direction.Right;
+                    break;
+
+                case ConsoleKey.UpArrow:
+                    this.direction = Direction.Up;
+                    break;
+
+                case ConsoleKey.DownArrow:
+                    this.direction = Direction.Down;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
