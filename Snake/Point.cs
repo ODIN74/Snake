@@ -1,21 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="Point.cs" company="Anton Klyushin">
+// Copyright (c) Anton Klyushin. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 namespace Snake
 {
-    class Point
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    
+    /// <summary>
+    /// Point class
+    /// </summary>
+    internal class Point
     {
+        /// <summary>
+        /// Координата х
+        /// </summary>
         private int x;
+        
+        /// <summary>
+        /// Координата y
+        /// </summary>
         private int y;
+
+        /// <summary>
+        /// Символ точки
+        /// </summary>
         private char symbol;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Point"/> class.
+        /// </summary>
         public Point()
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Point"/> class.
+        /// </summary>
+        /// <param name="x">Координата точки по оси x</param>
+        /// <param name="y">Координата точки по оси y</param>
+        /// <param name="symbol">Символ точки</param>
         public Point(int x, int y, char symbol)
         {
             this.x = x;
@@ -23,59 +51,107 @@ namespace Snake
             this.symbol = symbol;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Point"/> class.
+        /// </summary>
+        /// <param name="p">Экземпляр класса Point</param>
         public Point(Point p)
         {
-            this.X = p.X;
-            this.Y = p.Y;
-            this.Symbol = p.Symbol;
+            this.x = p.GetX;
+            this.y = p.GetY;
+            this.symbol = p.GetSymbol;
         }
 
-        public int X
+        /// <summary>
+        /// Gets координаты х
+        /// </summary>
+        public int GetX => this.x;
+
+        /// <summary>
+        /// Sets координаты х
+        /// </summary>
+        public int SetX
         {
-            get { return this.x; }
-            set { this.x = value; }
+            set => this.x = value;
         }
 
-        public int Y
+        /// <summary>
+        /// Gets координаты y
+        /// </summary>
+        public int GetY => this.y;
+
+        /// <summary>
+        /// Sets координаты y
+        /// </summary>
+        public int SetY
         {
-            get { return this.y; }
-            set { this.y = value; }
+            set => this.y = value;
         }
 
-        public char Symbol
+        /// <summary>
+        /// Gets символа точки
+        /// </summary>
+        public char GetSymbol => this.symbol;
+
+        /// <summary>
+        /// Sets символа точки
+        /// </summary>
+        public char SetSymbol
         {
-            get { return this.symbol; }
-            set { this.symbol = value; }
+            set => this.symbol = value;
         }
 
-        public void Move(int offset, Direction direction)
+        /// <summary>
+        /// Clear point method
+        /// </summary>
+        internal void Clear()
         {
-            switch(Convert.ToInt32(direction))
-            {
-                case 0:
-                    x = x - offset;
-                    break;
-                case 1:                   
-                        x = x + offset;
-                        break;
-                case 2:
-                    y = y - offset;
-                    break;
-                case 3:
-                    y = y + offset;
-                    break;      
-            }
+            this.symbol = ' ';
+            this.Draw();
         }
 
-        public void Drow()
+        /// <summary>
+        /// Draw point method
+        /// </summary>
+        internal void Draw()
         {
             Console.SetCursorPosition(this.x, this.y);
             Console.Write(this.symbol);
         }
 
+        /// <summary>
+        /// Move method for Point class
+        /// </summary>
+        /// <param name="offset">Offset of point</param>
+        /// <param name="direction">Direction of the offset point </param>
+        internal void Move(int offset, Direction direction)
+        {
+            switch (Convert.ToInt32(direction))
+            {
+                case 0:
+                    this.x = this.x - offset;
+                    break;
+                case 1:
+                    this.x = this.x + offset;
+                    break;
+                case 2:
+                    this.y = this.y - offset;
+                    break;
+                case 3:
+                    this.y = this.y + offset;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Override method ToString() for Point class
+        /// </summary>
+        /// <returns>The coordinates of the point and point symbol</returns>
         public override string ToString()
         {
-            return x + ", " + y + ", " + symbol;
+            return this.x + ", " + this.y + ", " + this.symbol;
         }
 
     }

@@ -1,20 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="Figure.cs" company="Anton Klyushin">
+// Copyright (c) Anton Klyushin. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 namespace Snake
 {
-    class Figure
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    /// <summary>
+    /// Figure class
+    /// </summary>
+    internal class Figure
     {
+        /// <summary>
+        /// List of points
+        /// </summary>
         protected List<Point> pList;
 
-        public void Drow()
+        /// <summary>
+        /// Draw of figure method
+        /// </summary>
+        public void Draw()
         {
-            foreach (Point p in pList)
+            foreach (var p in this.pList)
             {
-                p.Drow();
+                p.Draw();
             }
         }
     }

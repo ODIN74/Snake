@@ -1,36 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="Program.cs" company="Anton Klyushin">
+// Copyright (c) Anton Klyushin. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 namespace Snake
 {
-    class Program
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Linq;
+    using System.Security.Cryptography;
+    using System.Text;
+    using System.Threading;
+    using System.Threading.Tasks;
+
+    /// <summary>
+    /// Main program
+    /// </summary>
+    internal class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// Main method
+        /// </summary>
+        /// <param name="args">Arguments of main metod</param>
+        private static void Main(string[] args)
         {
             Console.SetBufferSize(80, 25);
-
             
-            HorizontalLine hLineTop = new HorizontalLine(0, Console.WindowWidth - 2, 0, '*');
-            hLineTop.Drow();
+            var horizontalLineTop = new HorizontalLine(0, Console.WindowWidth - 2, 0, '*');
+            horizontalLineTop.Draw();
 
-            VerticalLine vLineLeft = new VerticalLine(0, 1, Console.WindowHeight - 2, '*');
-            vLineLeft.Drow();
+            var verticalLineLeft = new VerticalLine(0, 1, Console.WindowHeight - 2, '*');
+            verticalLineLeft.Draw();
 
-            HorizontalLine hLineBottom = new HorizontalLine(0, Console.WindowWidth - 2, Console.WindowHeight - 1, '*');
-            hLineBottom.Drow();
+            var horizontalLineBottom = new HorizontalLine(0, Console.WindowWidth - 2, Console.WindowHeight - 1, '*');
+            horizontalLineBottom.Draw();
 
-            VerticalLine vLineRight = new VerticalLine(Console.WindowWidth - 2, 1, Console.WindowHeight - 2, '*');
-            vLineRight.Drow();
+            var verticalLineRight = new VerticalLine(Console.WindowWidth - 2, 1, Console.WindowHeight - 2, '*');
+            verticalLineRight.Draw();
 
-            Point p1 = new Point(1, 3, '*');
-            Snake snake = new Snake(p1, 4, Direction.RIGHT);
-            snake.Drow();
-
-            Point p2 = new Point(4, 5, '#');
-            p2.Drow();
+            var p1 = new Point(1, 3, '*');
+            var snake = new Snake(p1, 4, Direction.Right);
+            snake.Draw();
+            snake.Move();
         }
     }
 }
