@@ -7,6 +7,7 @@ namespace Snake
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -79,6 +80,39 @@ namespace Snake
         }
 
         /// <summary>
+        /// Eat of food method
+        /// </summary>
+        /// <param name="food">Food point</param>
+        /// <returns>True or False</returns>
+        internal bool Eat(Point food)
+        {
+            var head = this.GetNextPoint();
+            if (head.IsHit(food))
+            {
+                head.Draw();
+                food.SetSymbol = head.GetSymbol;
+                this.pList.Add(food);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool FoodOnSnake(int x, int y)
+        {
+            foreach (var p in this.pList)
+            {
+                if (p.GetX == x && p.GetY == y)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
         /// Motion control method
         /// </summary>
         /// <param name="key">Pressed key</param>
@@ -87,20 +121,34 @@ namespace Snake
             switch (key)
             {
                 case ConsoleKey.LeftArrow:
-                    this.direction = Direction.Left;
+                    if (this.direction != Direction.Right)
+                    {
+                        this.direction = Direction.Left;
+                    }
                     break;
 
+
                 case ConsoleKey.RightArrow:
-                    this.direction = Direction.Right;
+                    if (this.direction != Direction.Left)
+                    {
+                        this.direction = Direction.Right;
+                    }
                     break;
 
                 case ConsoleKey.UpArrow:
-                    this.direction = Direction.Up;
+                    if (this.direction != Direction.Down)
+                    {
+                        this.direction = Direction.Up;
+                    }
                     break;
 
                 case ConsoleKey.DownArrow:
-                    this.direction = Direction.Down;
+                    if (this.direction != Direction.Up)
+                    {
+                        this.direction = Direction.Down;
+                    }
                     break;
+
                 default:
                     break;
             }

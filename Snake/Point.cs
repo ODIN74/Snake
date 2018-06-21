@@ -94,6 +94,16 @@ namespace Snake
         public char GetSymbol => this.symbol;
 
         /// <summary>
+        /// Check point match method
+        /// </summary>
+        /// <param name="p">Other point</param>
+        /// <returns>True or False</returns>
+        internal bool IsHit(Point p)
+        {
+            return p.x == this.x && p.y == this.y;
+        }
+
+        /// <summary>
         /// Sets символа точки
         /// </summary>
         public char SetSymbol
