@@ -100,7 +100,13 @@ namespace Snake
             }
         }
 
-        public bool FoodOnSnake(int x, int y)
+        /// <summary>
+        /// New fod on the snake
+        /// </summary>
+        /// <param name="x">Coordinate x</param>
+        /// <param name="y">Coordinate y</param>
+        /// <returns>True or False</returns>
+        internal bool FoodOnSnake(int x, int y)
         {
             foreach (var p in this.pList)
             {
@@ -109,6 +115,25 @@ namespace Snake
                     return true;
                 }
             }
+            return false;
+        }
+
+        /// <summary>
+        /// Hit with tail method
+        /// </summary>
+        /// <returns>True or False</returns>
+        internal bool IsHitTail()
+        {
+            var head = this.pList.Last();
+
+            for (var i = 0; i < this.pList.Count - 2; i++)
+            {
+                if (head.IsHit(this.pList[i]))
+                {
+                    return true;
+                }
+            }
+
             return false;
         }
 

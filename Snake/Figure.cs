@@ -31,5 +31,41 @@ namespace Snake
                 p.Draw();
             }
         }
+
+        /// <summary>
+        /// Hit figure with figure
+        /// </summary>
+        /// <param name="fig">Figure instance</param>
+        /// <returns>True or False</returns>
+        internal bool IsHit(Figure fig)
+        {
+            foreach (var p in pList)
+            {
+                if (fig.IsHit(p))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Hit figure with point
+        /// </summary>
+        /// <param name="point">Point instance</param>
+        /// <returns>True or False</returns>
+        private bool IsHit(Point point)
+        {
+            foreach (var p in this.pList)
+            {
+                if (p.IsHit(point))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

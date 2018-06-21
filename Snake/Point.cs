@@ -94,6 +94,23 @@ namespace Snake
         public char GetSymbol => this.symbol;
 
         /// <summary>
+        /// Sets символа точки
+        /// </summary>
+        public char SetSymbol
+        {
+            set => this.symbol = value;
+        }
+
+        /// <summary>
+        /// Override method ToString() for Point class
+        /// </summary>
+        /// <returns>The coordinates of the point and point symbol</returns>
+        public override string ToString()
+        {
+            return this.x + ", " + this.y + ", " + this.symbol;
+        }
+
+        /// <summary>
         /// Check point match method
         /// </summary>
         /// <param name="p">Other point</param>
@@ -101,14 +118,6 @@ namespace Snake
         internal bool IsHit(Point p)
         {
             return p.x == this.x && p.y == this.y;
-        }
-
-        /// <summary>
-        /// Sets символа точки
-        /// </summary>
-        public char SetSymbol
-        {
-            set => this.symbol = value;
         }
 
         /// <summary>
@@ -154,15 +163,5 @@ namespace Snake
                     break;
             }
         }
-
-        /// <summary>
-        /// Override method ToString() for Point class
-        /// </summary>
-        /// <returns>The coordinates of the point and point symbol</returns>
-        public override string ToString()
-        {
-            return this.x + ", " + this.y + ", " + this.symbol;
-        }
-
     }
 }
