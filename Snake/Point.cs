@@ -6,10 +6,6 @@
 namespace Snake
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     
     /// <summary>
     /// Point class
@@ -34,7 +30,7 @@ namespace Snake
         /// <summary>
         /// Initializes a new instance of the <see cref="Point"/> class.
         /// </summary>
-        public Point()
+        internal Point()
         {
         }
 
@@ -44,7 +40,7 @@ namespace Snake
         /// <param name="x">Координата точки по оси x</param>
         /// <param name="y">Координата точки по оси y</param>
         /// <param name="symbol">Символ точки</param>
-        public Point(int x, int y, char symbol)
+        internal Point(int x, int y, char symbol)
         {
             this.x = x;
             this.y = y;
@@ -55,7 +51,7 @@ namespace Snake
         /// Initializes a new instance of the <see cref="Point"/> class.
         /// </summary>
         /// <param name="p">Экземпляр класса Point</param>
-        public Point(Point p)
+        internal Point(Point p)
         {
             this.x = p.GetX;
             this.y = p.GetY;
@@ -65,12 +61,12 @@ namespace Snake
         /// <summary>
         /// Gets координаты х
         /// </summary>
-        public int GetX => this.x;
+        internal int GetX => this.x;
 
         /// <summary>
         /// Sets координаты х
         /// </summary>
-        public int SetX
+        internal int SetX
         {
             set => this.x = value;
         }
@@ -78,12 +74,12 @@ namespace Snake
         /// <summary>
         /// Gets координаты y
         /// </summary>
-        public int GetY => this.y;
+        internal int GetY => this.y;
 
         /// <summary>
         /// Sets координаты y
         /// </summary>
-        public int SetY
+        internal int SetY
         {
             set => this.y = value;
         }
@@ -91,12 +87,12 @@ namespace Snake
         /// <summary>
         /// Gets символа точки
         /// </summary>
-        public char GetSymbol => this.symbol;
+        internal char GetSymbol => this.symbol;
 
         /// <summary>
         /// Sets символа точки
         /// </summary>
-        public char SetSymbol
+        internal char SetSymbol
         {
             set => this.symbol = value;
         }

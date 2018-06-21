@@ -3,7 +3,6 @@
 // Copyright (c) Anton Klyushin. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-
 namespace Snake
 {
     /// <summary>

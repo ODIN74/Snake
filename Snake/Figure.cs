@@ -5,11 +5,7 @@
 //-----------------------------------------------------------------------
 namespace Snake
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Figure class
@@ -24,7 +20,7 @@ namespace Snake
         /// <summary>
         /// Draw of figure method
         /// </summary>
-        public void Draw()
+        internal void Draw()
         {
             foreach (var p in this.pList)
             {

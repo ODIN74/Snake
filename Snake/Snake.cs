@@ -7,10 +7,7 @@ namespace Snake
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Snake class
@@ -89,7 +86,6 @@ namespace Snake
             var head = this.GetNextPoint();
             if (head.IsHit(food))
             {
-                head.Draw();
                 food.SetSymbol = head.GetSymbol;
                 this.pList.Add(food);
                 return true;

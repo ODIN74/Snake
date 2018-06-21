@@ -5,11 +5,7 @@
 //-----------------------------------------------------------------------
 namespace Snake
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// HorizontalLine class
@@ -23,7 +19,7 @@ namespace Snake
         /// <param name="xRight">Right coordinate x of point</param>
         /// <param name="y">Coordinate y of point</param>
         /// <param name="symbol">Point symbol</param>
-        public HorizontalLine(int xLeft, int xRight, int y, char symbol)
+        internal HorizontalLine(int xLeft, int xRight, int y, char symbol)
         {
             this.pList = new List<Point>();
             for (var x = xLeft; x <= xRight; x++)

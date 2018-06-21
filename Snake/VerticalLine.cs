@@ -5,11 +5,7 @@
 //-----------------------------------------------------------------------
 namespace Snake
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// VerticalLine class
@@ -23,7 +19,7 @@ namespace Snake
         /// <param name="yTop">Top coordinate y</param>
         /// <param name="yBottom">Bottom coordinate y</param>
         /// <param name="symbol">Point symbol</param>
-        public VerticalLine(int x, int yTop, int yBottom, char symbol)
+        internal VerticalLine(int x, int yTop, int yBottom, char symbol)
         {
             this.pList = new List<Point>();
             for (var y = yTop; y <= yBottom; y++)

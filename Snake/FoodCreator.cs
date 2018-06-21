@@ -6,10 +6,6 @@
 namespace Snake
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Create food by snake
@@ -34,7 +30,7 @@ namespace Snake
         /// <summary>
         /// Randomizer of food coordinates
         /// </summary>
-        private Random rnd = new Random();
+        private readonly Random rnd = new Random();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FoodCreator"/> class.
@@ -42,7 +38,7 @@ namespace Snake
         /// <param name="mapWidth">Width of the map</param>
         /// <param name="mapHeight">Height of the map</param>
         /// <param name="symbol">Symbol of food</param>
-        public FoodCreator(int mapWidth, int mapHeight, char symbol)
+        internal FoodCreator(int mapWidth, int mapHeight, char symbol)
         {
             this.mapWidth = mapWidth;
             this.mapHeight = mapHeight;
@@ -60,11 +56,13 @@ namespace Snake
             int y;
             do
             {
-                x = this.rnd.Next(2, this.mapWidth - 3);
-                y = this.rnd.Next(2, this.mapHeight - 2);
+                x = this.rnd.Next(3, this.mapWidth - 4);
+                y = this.rnd.Next(3, this.mapHeight - 3);
             }
             while (snake.FoodOnSnake(x, y));
-            return new Point(x, y, this.symbol);
+            var food = new Point(x, y, this.symbol);
+            food.Draw();
+            return food;
         }
     }
 }

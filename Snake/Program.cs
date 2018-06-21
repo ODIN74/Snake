@@ -6,13 +6,7 @@
 namespace Snake
 {
     using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Linq;
-    using System.Security.Cryptography;
-    using System.Text;
     using System.Threading;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Main program
@@ -36,7 +30,6 @@ namespace Snake
 
             var foodCreator = new FoodCreator(80, 25, '#');
             var food = foodCreator.CreateFood(snake);
-            food.Draw();
 
             while (true)
             {
@@ -48,7 +41,6 @@ namespace Snake
                 if (snake.Eat(food))
                 {
                     food = foodCreator.CreateFood(snake);
-                    food.Draw();
                 }
 
                 if (Console.KeyAvailable)
