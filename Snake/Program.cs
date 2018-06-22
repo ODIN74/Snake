@@ -20,6 +20,7 @@ namespace Snake
         private static void Main(string[] args)
         {
             Console.SetBufferSize(80, 25);
+            Console.CursorVisible = false;
             
             var walls = new Walls(80, 25);
             walls.Draw();
@@ -33,6 +34,13 @@ namespace Snake
 
             while (true)
             {
+                if (Console.KeyAvailable)
+                {
+                    snake.HandleKey(Console.ReadKey().Key);
+                }
+                Thread.Sleep(150);
+                snake.Move();
+
                 if (walls.IsHit(snake) || snake.IsHitTail())
                 {
                     break;
@@ -42,13 +50,6 @@ namespace Snake
                 {
                     food = foodCreator.CreateFood(snake);
                 }
-
-                if (Console.KeyAvailable)
-                {
-                    snake.HandleKey(Console.ReadKey().Key);
-                }
-                Thread.Sleep(100);
-                snake.Move();
             }
             
         }

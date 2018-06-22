@@ -56,8 +56,8 @@ namespace Snake
             int y;
             do
             {
-                x = this.rnd.Next(3, this.mapWidth - 4);
-                y = this.rnd.Next(3, this.mapHeight - 3);
+                x = this.rnd.Next(2, this.mapWidth - 2);
+                y = this.rnd.Next(2, this.mapHeight - 2);
             }
             while (snake.FoodOnSnake(x, y));
             var food = new Point(x, y, this.symbol);

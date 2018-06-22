@@ -35,7 +35,7 @@ namespace Snake
         /// <returns>True or False</returns>
         internal bool IsHit(Figure fig)
         {
-            foreach (var p in pList)
+            foreach (var p in this.pList)
             {
                 if (fig.IsHit(p))
                 {

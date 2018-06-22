@@ -6,7 +6,9 @@
 namespace Snake
 {
     using System;
-    
+    using System.IO;
+    using System.Threading;
+
     /// <summary>
     /// Point class
     /// </summary>

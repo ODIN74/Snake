@@ -83,7 +83,7 @@ namespace Snake
         /// <returns>True or False</returns>
         internal bool Eat(Point food)
         {
-            var head = this.GetNextPoint();
+            var head = this.pList.Last();
             if (head.IsHit(food))
             {
                 food.SetSymbol = head.GetSymbol;
@@ -147,7 +147,6 @@ namespace Snake
                         this.direction = Direction.Left;
                     }
                     break;
-
 
                 case ConsoleKey.RightArrow:
                     if (this.direction != Direction.Left)
